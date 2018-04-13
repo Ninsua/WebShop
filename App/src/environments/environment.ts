@@ -5,4 +5,12 @@
 
 export const environment = {
   production: false
+  firebase: {
+    apiKey: "AIzaSyBAXFoSsq04pgL7FnVkP_ZDyXH0PPHzopE",
+    authDomain: "webshop-53671.firebaseapp.com",
+    databaseURL: "https://webshop-53671.firebaseio.com",
+    projectId: "webshop-53671",
+    storageBucket: "webshop-53671.appspot.com",
+    messagingSenderId: "324474668583"
+  }
 };
