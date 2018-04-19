@@ -6,6 +6,7 @@
         <li><a href="#contact">Contact</a></li>
         <li><a href="#about">About</a></li> 
         <div *ngIf= "afAuth.authState | async as user; else showLogin">
+            <p>Welcome {{user.displayName}} </p>
             <button id="loginButton" (click)="logout()">Sign out</button>
         </div>
         <ng-template #showLogin>

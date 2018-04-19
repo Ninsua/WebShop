@@ -46,6 +46,10 @@ li a:hover, #loginButton:hover {
     border-color: orangered;
 }
 
+p {
+    color: white;
+}
+
 searchContainer {
     background-color: red;
     padding: 20px 50px;
