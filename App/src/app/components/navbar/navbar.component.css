@@ -56,13 +56,7 @@ searchContainer {
     position: absolute;
 }
 
-input {
-    -webkit-border-radius: 50px;
-    -moz-border-radius: 50px;
-    border: none;
-    padding: 4%;
-    
-}
+
 
 #searchBar {
     padding: 20px 16px;
@@ -142,11 +136,34 @@ welcomeText {
     position: absolute;
     float: right; 
     padding: 20px 16px;
-    
-    text-align: center;
+     text-align: center;
+}
+input[type=text] {
+    width: 200px;
+    position: right;
+    float: right;
+  
+    box-sizing: border-box;
+    border: 2px solid rgb(87, 85, 85);
+    border-radius: 20px;
+    font-size: 16px;
+    background-color: rgb(252, 245, 245);
+    background-image: url();
+    padding: 12px 20px 5px 10px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
 }
 
+input[type=text]:focus {
+    width: 50%;
+}
 
+input {
+  
+    border: none;
+    padding: 4%;
+    
+}
 
 
 
