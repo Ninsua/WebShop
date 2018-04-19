@@ -1,0 +1,20 @@
+<nav>
+    <ul >
+        <li><a id="title" href="">WebShop</a></li>
+        <li><a class="active" href="">Home</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#about">About</a></li>
+        <div *ngIf= "afAuth.authState | async as user; else showLogin" id="accountDiv">
+            <!-- use {{user.displayName}} to display the users name-->
+            <button id="loginButton" (click)="logout()">Sign out</button>
+        </div>
+        <ng-template #showLogin id="accountDiv">
+                <button id="loginButton" (click)="login()">Sign in</button>
+        </ng-template>
+        <form id="searchBar">
+            <input type="search" placeholder="Search" aria-label="Search">
+            <button  type="submit">Search</button>
+        </form>
+    </ul>
+</nav> 
