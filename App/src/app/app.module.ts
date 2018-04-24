@@ -5,15 +5,16 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { NavbarComponent } from './components/navbar/navbar.component';
 
+
 @NgModule({
   declarations: [
-    NavbarComponent
+    NavbarComponent,
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
     BrowserModule
   ],
   providers: [AngularFireAuth],
-  bootstrap: [ NavbarComponent]
+  bootstrap: [NavbarComponent]
 })
 export class AppModule { }
