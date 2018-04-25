@@ -1,0 +1,18 @@
+<div>
+
+    <h3>Add a Category </h3>
+    
+    <!--Input Product Name-->
+    
+    <div>      
+      Category name:
+      <input #inputName (keyup)="onKeyName(inputName.value)">
+    </div>
+
+    <div>
+      <button (click)= "buttonClick()">
+        Submit
+      </button>
+    </div>
+        
+  </div>
