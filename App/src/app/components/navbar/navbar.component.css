@@ -46,9 +46,39 @@ li a:hover, #loginButton:hover {
     border-color: orangered;
 }
 
-p {
+h5 {
+    position: relative;
+    margin: 10%;
+    padding: 0px 16px;
     color: white;
 }
+
+#welcomeText {
+    float: left;
+    padding: 0px 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    height: 100%;
+    font-size: 13px;
+    vertical-align: middle;
+    text-align: center;
+    border-left: solid;
+    border-right: solid;
+}
+
+.signIn {
+    display: inline-block;
+    right: 0%;
+    position: absolute;
+    border: none;
+    height: 100%;
+    text-align: center;
+}
+
+.loggedIn {
+    height: 100%;
+}
+
 
 searchContainer {
     background-color: red;
@@ -96,48 +126,21 @@ buttContain {
     color: orangered;
 }
 
-
-
 #loginButton {
-    margin: 0;
-    right: 0%;
-    float: right;
-    padding: 20px 16px;
+
     background-color: #333;
     border: none;
-    text-align: center;
     font-family: Arial, Helvetica, sans-serif;
+    padding: 20px 16px;
     color: white;
-    bottom: 0%;
-    top: 0%;
-    position: absolute;
     font-weight: bold;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    height: 100%;
+} 
 
-}
 
-accountDiv {
-    margin: 0;
-    right: 0%;
-    float: right;
-    padding: 20px 16px;
-    background-color: #333;
-    border: none;
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-    color: white;
-    bottom: 0%;
-    top: 0%;
-    position: absolute;
-    font-weight: bold;
-}
 
-welcomeText {
-    position: absolute;
-    float: right; 
-    padding: 20px 16px;
-     text-align: center;
-}
+
 input[type=text] {
     width: 200px;
     position: right;
@@ -164,6 +167,16 @@ input {
     padding: 4%;
     
 }
+
+nav .active {
+    background-color: #4CAF50;
+}
+
+nav li.active a:hover {
+    background-color: #4CAF50;
+}
+
+
 
 
 

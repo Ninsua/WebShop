@@ -5,7 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminPanelComponent } from './../components/admin-panel/admin-panel.component';
 
 const routes: Routes = [
-	//{ path: '', redirectTo: '/dashboard', pathMatch: 'full' }, //"Home" can be changed later
+	//{ path: '', redirectTo: '/admin', pathMatch: 'full' }, //"Home" can be changed later
 	{ path: 'admin', component: AdminPanelComponent }
 ];
 
@@ -14,7 +14,7 @@ const routes: Routes = [
 	RouterModule.forRoot(routes)
   ],
  	exports: [
-		RouterModule
+	RouterModule
 	]
 })
 export class AppRoutingModule { }
