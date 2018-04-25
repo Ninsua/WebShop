@@ -1,10 +1,20 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { RouterModule, Routes } from '@angular/router';
+
+//Components
+import { AdminPanelComponent } from './../components/admin-panel/admin-panel.component';
+
+const routes: Routes = [
+	//{ path: '', redirectTo: '/dashboard', pathMatch: 'full' }, //"Home" can be changed later
+	{ path: 'admin', component: AdminPanelComponent }
+];
 
 @NgModule({
   imports: [
-    CommonModule
+	RouterModule.forRoot(routes)
   ],
-  declarations: []
+ 	exports: [
+		RouterModule
+	]
 })
-export class AppRoutinModule { }
+export class AppRoutingModule { }
