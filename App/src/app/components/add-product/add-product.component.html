@@ -1,0 +1,81 @@
+
+
+<div class="center">
+
+<h3>Add a Product </h3>
+
+<!--Input Product Name-->
+
+<div >      
+  Product name: <br/>
+  <input #productName (keyup)="onKeyName(productName.value)">
+</div>
+
+
+<!--Select Category-->
+ Select a category:
+<div>
+  <select [value]=selectedCategory 
+  (change)= "selectedCategory=$event.target.value">
+    <option *ngFor = "let category of categoryList | async" [value]="category.name">
+            {{category.name}}
+    </option>
+  </select> 
+  <a routerLink="/admin/add_category">New Category</a>
+</div>
+
+   
+  
+<!--Upload Product Picture-->
+<div >
+  <div>
+    <label for = "file" > Upload product picture:</label >  <br/>
+    <input type = "file" (change)= "startUpload($event.target.files)" >
+  </div>
+
+  <div *ngIf = "percentage | async as pct">
+    <progress class="progress is-info"
+        [value] = "pct"
+        max = "100"> 
+    </progress>
+  </div>
+</div>
+  
+  
+<!--Set Product Price-->
+<div>
+  Set Price: <br/>
+  <input #productPrice (keyup)="onKeyPrice(productPrice.value)">
+</div>
+  
+<!--Set Nunber in Stock-->
+<div>
+  Number in stock: <br/>
+  <input #numInStock (keyup)="onKeyNumber(numInStock.value)">
+</div>
+
+<!--Write Product Description-->
+   
+<div>
+  Product Description: <br/>
+  <textarea 
+  #productDescription (keyup) = "onKeyDescription(productDescription.value)"
+  style = "width:500px; height:300px">
+  </textarea>
+</div>
+  
+<!--Submit Button-->
+<div>
+  <button (click)="buttonClick()">
+    Submit
+  </button>
+        {{selectedBrand}}
+</div>
+
+
+</div>
+
+  
+
+
+

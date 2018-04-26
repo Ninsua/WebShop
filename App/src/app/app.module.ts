@@ -7,6 +7,7 @@ import { environment } from '../environments/environment';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabaseModule, AngularFireDatabase} from 'angularfire2/database';
+import { AngularFireStorage, AngularFireStorageModule} from 'angularfire2/storage';
 
 //Routing
 import { AppRoutingModule } from './routing/app-routing.module';
@@ -15,6 +16,7 @@ import { AppRoutingModule } from './routing/app-routing.module';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { AdminPanelComponent } from './components/admin-panel/admin-panel.component';
 import { AddCategoryComponent } from './components/add-category/add-category.component';
+import { AddProductComponent } from './components/add-product/add-product.component';
 
 @NgModule({
 
@@ -23,10 +25,12 @@ import { AddCategoryComponent } from './components/add-category/add-category.com
     NavbarComponent,
     AdminPanelComponent,
 	AddCategoryComponent,
+	AddProductComponent
   ],
 	imports: [
     AngularFireModule.initializeApp(environment.firebase),
 	AngularFireDatabaseModule,
+	AngularFireStorageModule,
     BrowserModule,
 	AppRoutingModule
   ],
