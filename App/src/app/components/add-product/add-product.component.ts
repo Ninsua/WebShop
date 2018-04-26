@@ -1,10 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import { AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from 'rxjs/Observable';
 import { Product, Category } from '../../classes/classes';
 import { AngularFireStorage, AngularFireUploadTask } from 'angularfire2/storage'; 
-import { AngularFirestore } from 'angularfire2/firestore'
-
 
 @Component({
   selector: 'app-add-product',
@@ -14,12 +13,12 @@ import { AngularFirestore } from 'angularfire2/firestore'
 export class AddProductComponent implements OnInit {
  
   // product attribute
-  name:string;
-  selectedCategory:string;
-  imageURL:string;
+  name:string="";
+  selectedCategory:string="";
+  imageURL:string="";
   price :number;
   numInStock:number;   // default 0
-  description:string;
+  description:string="";
   prod:Product;
   // product reference
   productRef: AngularFireList<Product>;
@@ -35,12 +34,33 @@ export class AddProductComponent implements OnInit {
   snapshot: Observable<any>;
   // Download URL
   downloadURL: Observable<string>;
+	
+	//Admin access stuff, needs to be fixed l8er
+	currentUser:string;
+	ad:boolean;
+ 	uid:string[]=['hT2JRuUpxTbc5lS1Q3ig9J2Deze2',
+	'GFTt4EJ9dxXEXC1VFeKjqBnnsE02',
+	'tPk7fgs2TucAYTQUOgAd05UabUb2'
+];
 
-
-  constructor(private db: AngularFireDatabase, private storage: AngularFireStorage) {
-    this.productRef = db.list('/Products');
-    this.categoryList = db.list('/Category').valueChanges();
+  constructor(private db: AngularFireDatabase, private storage: AngularFireStorage, private afAuth: AngularFireAuth) {
+	this.currentUser=afAuth.auth.currentUser.uid;
+	this.productRef = db.list('/Products');
+	this.categoryList = db.list('/Category').valueChanges();
   }
+
+	//Admin access stuff, needs to be fixed l8er
+	isAdmin():boolean {
+    if(this.afAuth.auth.currentUser!= null){
+      this.currentUser=this.afAuth.auth.currentUser.uid;
+      this.ad = false;
+      for(var i = 0; i<this.uid.length;i++)
+      {
+        if (this.currentUser == this.uid[i]) this.ad = true;
+      }
+    	return this.ad;
+    }
+}
 
   // Binding HTML input to TypeScript
   onKeyName(value: string){
@@ -89,14 +109,13 @@ export class AddProductComponent implements OnInit {
 
   // button click upload to database
   buttonClick() {
-	if (isNaN(this.numInStock) || isNaN(this.price)) {
-		console.log("test");
-		alert('One or more property is missing!');
+	if (this.name.length == 0 || this.selectedCategory.length == 0 || this.imageURL.length == 0 || isNaN(this.price) || isNaN(this.numInStock) || this.description.length == 0) {
+		alert('Some properties are missing!');
 	} else {
-		this.prod = new Product(this.name, this.selectedCategory, this.imageURL, this.price, this.numInStock, this.description);
-		this.productRef.push(this.prod);
-		alert('Submitted');
-		window.location.reload();
+	this.prod = new Product(this.name, this.selectedCategory, this.imageURL, this.price, this.numInStock, this.description);
+	this.productRef.push(this.prod);
+	alert('Submitted');
+	window.location.reload();
 	}
   }
 

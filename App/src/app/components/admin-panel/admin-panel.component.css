@@ -1,0 +1,68 @@
+body {
+    margin: -3px;
+    font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+    background-color: #555;
+}
+#nav {
+    text-align: center;
+}
+/* Begin Navigation Bar Styling */
+#nav ul {
+    text-align: center;
+    font-size: 11px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    padding: 0;
+    list-style: none;
+    background-color: #f2f2f2;
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+}
+#nav li {
+    display: inline-block;
+}
+#nav li a {
+    display: block;
+    padding: 8px 15px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #069;
+    border-right: 1px solid #ccc;
+}
+#nav li a:hover {
+    color: rgb(15, 9, 9);
+    background-color: rgb(40, 194, 214);
+}
+/* End navigation bar styling. */
+div {
+    text-align: center;
+}
+div#page {
+    background-color: white;
+    margin: 0 auto;
+    text-align: left;
+    width: 755px;
+    padding: 0px 10px 0 10px;
+}
+div#header {
+    border-bottom: 1px solid black;
+    height: 30px;
+    line-height: 30px;
+}
+div#content {
+    background: none repeat scroll 0 0 none;
+    border: 0px solid blue;
+    width: 100%;
+    line-height: 500px;
+    min-height: 500px;
+    _height: 500px
+}
+div#footer {
+    border: 0px solid red;
+    height: 30px;
+    line-height: 30px;
+    border-top: 1px solid black;
+    font-size: 9pt;
+}
