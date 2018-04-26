@@ -7,7 +7,7 @@
         <li><a href="#about">About</a></li> 
         <div class="signIn">
             <div class="loggedIn" *ngIf= "afAuth.authState | async as user; else showLogin">
-				<li routerLinkActive='active'><a routerLink="/admin">Admin Tools</a></li>
+                <li routerLinkActive='active' *ngIf="isAdmin()"><a routerLink="/admin">Admin Tools</a></li>
                 <div id="welcomeText">
                     <h5><i>Welcome {{user.displayName}}</i> </h5>
                 </div>
@@ -17,7 +17,8 @@
             <ng-template #showLogin>
                 <button id="loginButton" (click)="login()">Sign in</button>
             </ng-template> 
-        </div> <!--
+        </div> 
+        <!--
         <li>
                 <form id="searchBar">
                     <input id="searchField" type="search" placeholder="Search" aria-label="Search">
@@ -29,22 +30,6 @@
             <button id="searchButton" type="submit">Search</button>
             </div>
         </li> -->
-        <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style> 
-
-</style>
-</head>
-<body>
-
-
-<!--
-<form>
-  <input type="text" name="search" placeholder="Search product">
-</form> -->
-
-</body>
-
     </ul>
 </nav> 
 
