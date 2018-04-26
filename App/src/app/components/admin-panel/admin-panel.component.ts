@@ -23,7 +23,7 @@ export class AdminPanelComponent implements OnInit {
     return this.ad;
   }
   
-  ngOnInit() {	  
+  ngOnInit() {
 	if (this.currentUser == this.uid) {
 		this.ad = true;
 	} else {

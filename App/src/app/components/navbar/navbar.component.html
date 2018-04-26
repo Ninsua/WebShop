@@ -6,8 +6,8 @@
         <li><a href="#contact">Contact</a></li>
         <li><a href="#about">About</a></li> 
         <div class="signIn">
-            <div class="loggedIn" *ngIf= "afAuth.authState | async as user; else showLogin">
-				<li routerLinkActive='active'><a routerLink="/admin">Admin Tools</a></li>
+            <div class="loggedIn" *ngIf="afAuth.authState | async as user; else showLogin">
+				<li *ngIf="isAdmin()" routerLinkActive='active'><a routerLink="/admin">Admin Tools</a></li>
                 <div id="welcomeText">
                     <h5><i>Welcome {{user.displayName}}</i> </h5>
                 </div>
