@@ -10,7 +10,10 @@ import * as firebase from 'firebase/app';
 export class NavbarComponent implements OnInit {
 	currentUser:string;
 	ad:boolean;
-	uid:string='hT2JRuUpxTbc5lS1Q3ig9J2Deze2';
+  uid:string[]=['hT2JRuUpxTbc5lS1Q3ig9J2Deze2',
+  'GFTt4EJ9dxXEXC1VFeKjqBnnsE02',
+  'tPk7fgs2TucAYTQUOgAd05UabUb2'
+  ];
 	afAuth:AngularFireAuth;
 
   constructor(public auth: AngularFireAuth, ) {
@@ -18,27 +21,25 @@ export class NavbarComponent implements OnInit {
   }
   login () {
     this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
-	this.currentUser=this.afAuth.auth.currentUser.uid;
+  	if(this.afAuth.auth.currentUser!= null)this.currentUser=this.afAuth.auth.currentUser.uid;
   }
   logout(){
     this.afAuth.auth.signOut();
-	this.currentUser="";
+	  this.currentUser="";
   }
   ngOnInit() {
   }
 	
 	isAdmin():boolean {
-		this.currentUser=this.afAuth.auth.currentUser.uid;
-		console.log(this.currentUser);
-		console.log(this.uid);
-		if (this.currentUser == this.uid) {
-			console.log("current user is uid");
-			this.ad = true;
-		} else {
-			console.log("current user is not uid");
-			this.ad == false;
-		}
-	return this.ad;
-  }
+    if(this.afAuth.auth.currentUser!= null){
+      this.currentUser=this.afAuth.auth.currentUser.uid;
+      this.ad = false;
+      for(var i = 0; i<3;i++)
+      {
+        if (this.currentUser == this.uid[i]) this.ad = true;
+      }
 
+    	return this.ad;
+    }
+  }
 }
