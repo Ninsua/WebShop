@@ -73,22 +73,22 @@ export class AddProductComponent implements OnInit {
     });
   }
 
-  onKeyPrice(value: number){
+  onKeyPrice(value: number) {
     this.price = value;
   }
 
-  onKeyNumber(value:number){
+  onKeyNumber(value:number) {
     this.numInStock =value;
   }
 
-  onKeyDescription(value: string){
+  onKeyDescription(value: string) {
     this.description = value;
   }
 
 
 
   // button click upload to database
-  buttonClick(){
+  buttonClick() {
 	if (isNaN(this.numInStock) || isNaN(this.price)) {
 		console.log("test");
 		alert('One or more property is missing!');
