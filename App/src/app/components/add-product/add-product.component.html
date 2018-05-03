@@ -1,6 +1,14 @@
-<div class="center" *ngIf="isAdmin(); else noAccess">
+<br>
+<br>
+<br>
 
-<h3>Add a Product </h3>
+<div class="center" *ngIf="isAdmin(); else noAccess">
+	
+	<h3>Add a Product </h3>
+
+	<button (click)="goBack()">Go back</button>
+	<br>
+	<br>
 
 <!--Input Product Name-->
 
