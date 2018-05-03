@@ -6,14 +6,19 @@
 	Edit product
 </h3>
 
-<button (click)="goBack()">Go back</button>
+<button (click)="goBack()" class="btn btn-success">Go back</button>
+<button (click)="itemRemove()" class="btn btn-success">Remove product</button>
 	
-<br>
-<br>
+<br><br>
 
 <div *ngIf="product; else loading">
 	
 	<form (ngSubmit)="onSubmit()" #productForm="ngForm">
+		
+		<button type="submit" class="btn btn-success"
+				[disabled]="!productForm.form.valid || (name.pristine && brand.pristine && price.pristine && numInStock.pristine && description.pristine && !changedImage)">Apply changes</button>
+		
+		<br><br>
 
 		<div class="form-group">      
 			<label for="name">Name:</label>
@@ -80,20 +85,20 @@
 		</div>
 		
 		<div>
+			<br>
+			<label for="file" >Change product image:</label>
+			<br><br>
+   			<input type="file" (change)= "startUpload($event.target.files)" class="btn btn-success">
+			<br><br>
 			Current image:
 			<br>
 			<img src="{{product.imageURL}}">	
-			<br>
-			<label for="file" >Change product image:</label>
-			<br>
-   				<input type="file" (change)= "startUpload($event.target.files)">
 		</div>
 		
-	<button type="submit" class="btn btn-success" [disabled]="!productForm.form.valid">Submit</button>
+		<br><br>
 
 	</form>
 	
-	<button (click)="itemRemove()">Remove</button>
 </div>
 	
 

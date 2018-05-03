@@ -6,7 +6,7 @@
   <div class="center">
     <h3>Products</h3>
 	  
-	<button (click)="goBack()">Go back</button>
+	<button (click)="goBack()" class="btn btn-success">Go back</button>
 	<br>
 	<br>
   </div>
@@ -19,14 +19,14 @@
         <dir class ="center">
           <span style="height:100%;display:inline-block;vertical-align:middle; text-align:center; height:150px; width:150px;border:1px solid black">
               <span style="height:100%;display:inline-block;vertical-align:middle; text-align:center; height:150px"></span>
-              <img src = {{product.imageURL}} alt="" width = "120px" style ="vertical-align:middle; text-align:center">
+              <img src = {{product.imageURL}} alt="" height="140px" style="vertical-align:middle; text-align:center">
               <span style="height:100%;display:inline-block;vertical-align:middle; text-align:center; height:150px"></span>
           </span>
           
         </dir>
         <div class="center">{{product.brand}}</div>
         <div class="center">{{product.name}}</div>
-        <div class="center">{{product.price}}</div>
+        <div class="center">{{product.price}} SEK</div>
       </div>
     </div>
  

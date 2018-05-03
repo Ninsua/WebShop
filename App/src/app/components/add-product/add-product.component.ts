@@ -17,6 +17,7 @@ export class AddProductComponent implements OnInit {
   name:string="";
   selectedCategory:string="";
   imageURL:string="";
+	imagePath:string="";
   price :number;
   numInStock:number;   // default 0
   description:string="";
@@ -79,7 +80,10 @@ export class AddProductComponent implements OnInit {
     }
 
     // The storage path
-    const path = 'Products/'+(new Date().getTime())+'_'+file.name;
+    const path = 'Products/images/'+(new Date().getTime())+'_'+file.name;
+	//Save path to product to be uploaded
+	this.imagePath = path;
+	console.log(path);
     // The main task
     this.task = this.storage.upload(path, file);
     // progress monitoring 
@@ -116,10 +120,10 @@ export class AddProductComponent implements OnInit {
 	if (this.name.length == 0 || this.selectedCategory.length == 0 || this.imageURL.length == 0 || isNaN(this.price) || isNaN(this.numInStock) || this.description.length == 0) {
 		alert('Some properties are missing!');
 	} else {
-	this.prod = new Product(this.name, this.selectedCategory, this.imageURL, this.price, this.numInStock, this.description);
+	this.prod = new Product(this.name, this.selectedCategory, this.imageURL, this.imagePath, this.price, this.numInStock, this.description);
 	this.productRef.push(this.prod);
 	alert('Submitted');
-	window.location.reload();
+	this.goBack();
 	}
   }
 
