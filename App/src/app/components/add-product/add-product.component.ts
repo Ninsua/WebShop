@@ -4,6 +4,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from 'rxjs/Observable';
 import { Product, Category } from '../../classes/classes';
 import { AngularFireStorage, AngularFireUploadTask } from 'angularfire2/storage'; 
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-add-product',
@@ -43,7 +44,7 @@ export class AddProductComponent implements OnInit {
 	'tPk7fgs2TucAYTQUOgAd05UabUb2'
 ];
 
-  constructor(private db: AngularFireDatabase, private storage: AngularFireStorage, private afAuth: AngularFireAuth) {
+  constructor(private db: AngularFireDatabase, private storage: AngularFireStorage, private afAuth: AngularFireAuth, private location: Location) {
 	this.currentUser=afAuth.auth.currentUser.uid;
 	this.productRef = db.list('/Products');
 	this.categoryList = db.list('/Category').valueChanges();
@@ -105,6 +106,9 @@ export class AddProductComponent implements OnInit {
     this.description = value;
   }
 
+	goBack(): void {
+		this.location.back();
+	}
 
 
   // button click upload to database

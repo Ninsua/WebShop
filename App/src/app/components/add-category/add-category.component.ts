@@ -3,7 +3,7 @@ import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from 'rxjs/Observable'; 
 import { Category } from '../../classes/classes';
-
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-add-category',
@@ -24,7 +24,7 @@ export class AddCategoryComponent implements OnInit {
 
 		categoryRef: AngularFireList<Category>;
 
-		constructor(private db: AngularFireDatabase,private afAuth: AngularFireAuth) {
+		constructor(private db: AngularFireDatabase,private afAuth: AngularFireAuth,private location: Location) {
 		this.currentUser=afAuth.auth.currentUser.uid;
 		this.categoryRef = db.list('/Category');
 	}
@@ -45,14 +45,18 @@ export class AddCategoryComponent implements OnInit {
 	onKeyName(value:string){
 		this.categoryName = value;
 	}
+	
+	goBack(): void {
+		this.location.back();
+	}
 
 	buttonClick(){
-		if (this.categoryName.length==0) {
+		if (this.categoryName.length==0	) {
 			alert('Category name is missing!');
 		} else {
 			this.categoryRef.push(new Category(this.categoryName));
-			alert('Submitted');
-			window.location.reload();
+			alert('Category was added!');
+			this.goBack();
 		}
 	}
 
