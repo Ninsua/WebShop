@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
+import { FormsModule } from '@angular/forms';
 
 //Firebase stuff
 import { AngularFireModule } from 'angularfire2';
@@ -17,6 +18,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { AdminPanelComponent } from './components/admin-panel/admin-panel.component';
 import { AddCategoryComponent } from './components/add-category/add-category.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
+import { AdminViewProductComponent } from './components/admin-view-product/admin-view-product.component';
+import { AdminEditProductComponent } from './components/admin-edit-product/admin-edit-product.component';
 
 @NgModule({
 
@@ -25,14 +28,17 @@ import { AddProductComponent } from './components/add-product/add-product.compon
     NavbarComponent,
     AdminPanelComponent,
 	AddCategoryComponent,
-	AddProductComponent
+	AddProductComponent,
+	AdminViewProductComponent,
+	AdminEditProductComponent
   ],
 	imports: [
     AngularFireModule.initializeApp(environment.firebase),
 	AngularFireDatabaseModule,
 	AngularFireStorageModule,
     BrowserModule,
-	AppRoutingModule
+	AppRoutingModule,
+	FormsModule
   ],
   providers: [AngularFireAuth],
   bootstrap: [AppComponent]

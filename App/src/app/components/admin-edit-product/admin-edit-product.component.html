@@ -1,0 +1,103 @@
+<br>
+<br>
+<br>
+
+<h3>
+	Edit product
+</h3>
+
+<button (click)="goBack()">Go back</button>
+	
+<br>
+<br>
+
+<div *ngIf="product; else loading">
+	
+	<form (ngSubmit)="onSubmit()" #productForm="ngForm">
+
+		<div class="form-group">      
+			<label for="name">Name:</label>
+			<br>
+				<input type="text" class="form-control" id="name"
+				required
+				[(ngModel)]="product.name"  name="name" #name="ngModel">
+		
+			<div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+  				Name is required
+			</div>
+		</div>
+
+		<div class="form-group">      
+			<label for="brand">Category:</label>
+			<br>
+				<select class="form-control" id="categoryList" name="brand"
+					required
+					[(ngModel)]="product.brand" #brand="ngModel">
+					<option *ngFor = "let category of categoryList | async" [value]="category.name">
+            			{{category.name}}
+					</option>
+				</select> 
+				<div [hidden]="brand.valid || brand.pristine" class="alert alert-danger">
+  					Category is required
+				</div>
+		</div>
+		
+		<div class="form-group">      
+			<label for="price">Price:</label>
+			<br>
+				<input type="number" class="form-control" [(ngModel)]="product.price" name="price"
+				required
+				[(ngModel)]="product.price" #price="ngModel">
+				
+				<div [hidden]="price.valid || price.pristine" class="alert alert-danger">
+  					Price is required
+				</div>
+			
+		</div>
+		
+		<div class="form-group">      
+			<label for="numInStock">Number in stock:</label>
+			<br>
+				<input type="number" class="form-control" [(ngModel)]="product.numInStock" name="numInStock"
+				required
+				[(ngModel)]="product.numInStock" #numInStock="ngModel">
+				
+				<div [hidden]="numInStock.valid || numInStock.pristine" class="alert alert-danger">
+  					Stock is required
+				</div>
+		</div>
+		
+		<div class="form-group">      
+			<label for="description">Description:</label>
+			<br>
+				<textarea type="text" class="form-control" [(ngModel)]="product.description"
+				required
+				#description="ngModel" name="description">
+				</textarea>
+				<div [hidden]="description.valid || description.pristine" class="alert alert-danger">
+  					Description is required
+				</div>
+		</div>
+		
+		<div>
+			Current image:
+			<br>
+			<img src="{{product.imageURL}}">	
+			<br>
+			<label for="file" >Change product image:</label>
+			<br>
+   				<input type="file" (change)= "startUpload($event.target.files)">
+		</div>
+		
+	<button type="submit" class="btn btn-success" [disabled]="!productForm.form.valid">Submit</button>
+
+	</form>
+	
+	<button (click)="itemRemove()">Remove</button>
+</div>
+	
+
+
+<ng-template #loading>
+	The product is loading...
+</ng-template>
