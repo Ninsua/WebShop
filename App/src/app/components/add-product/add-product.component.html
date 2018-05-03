@@ -6,13 +6,13 @@
 	
 	<h3>Add a Product </h3>
 
-	<button (click)="goBack()">Go back</button>
+	<button (click)="goBack()" class="btn btn-success">Go back</button>
 	<br>
 	<br>
 
 <!--Input Product Name-->
 
-<div >      
+<div>      
   Product name: <br/>
   <input #productName (keyup)="onKeyName(productName.value)">
 </div>
