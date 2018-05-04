@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import { Product, Category } from '../../classes/classes';
 import { AngularFireStorage, AngularFireUploadTask } from 'angularfire2/storage'; 
 import { Location } from '@angular/common';
+import { SigninService } from './../../services/signin/signin.service';
 
 @Component({
   selector: 'app-add-product',
@@ -12,7 +13,8 @@ import { Location } from '@angular/common';
   styleUrls: ['./add-product.component.css']
 })
 export class AddProductComponent implements OnInit {
- 
+ signinService:SigninService;
+	
   // product attribute
   name:string="";
   selectedCategory:string="";
@@ -37,32 +39,16 @@ export class AddProductComponent implements OnInit {
   // Download URL
   downloadURL: Observable<string>;
 	
-	//Admin access stuff, needs to be fixed l8er
-	currentUser:string;
-	ad:boolean;
- 	uid:string[]=['hT2JRuUpxTbc5lS1Q3ig9J2Deze2',
-	'GFTt4EJ9dxXEXC1VFeKjqBnnsE02',
-	'tPk7fgs2TucAYTQUOgAd05UabUb2'
-];
 
-  constructor(private db: AngularFireDatabase, private storage: AngularFireStorage, private afAuth: AngularFireAuth, private location: Location) {
-	this.currentUser=afAuth.auth.currentUser.uid;
+  constructor(private db: AngularFireDatabase, private storage: AngularFireStorage, private location: Location, private signIn:SigninService) {
+	this.signinService = signIn;
 	this.productRef = db.list('/Products');
 	this.categoryList = db.list('/Category').valueChanges();
   }
 
-	//Admin access stuff, needs to be fixed l8er
 	isAdmin():boolean {
-    if(this.afAuth.auth.currentUser!= null){
-      this.currentUser=this.afAuth.auth.currentUser.uid;
-      this.ad = false;
-      for(var i = 0; i<this.uid.length;i++)
-      {
-        if (this.currentUser == this.uid[i]) this.ad = true;
-      }
-    	return this.ad;
-    }
-}
+		return this.signinService.isAdmin();
+	}
 
   // Binding HTML input to TypeScript
   onKeyName(value: string){
