@@ -4,6 +4,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from 'rxjs/Observable'; 
 import { Category } from '../../classes/classes';
 import { Location } from '@angular/common';
+import { SigninService } from './../../services/signin/signin.service';
 
 @Component({
   selector: 'app-add-category',
@@ -12,36 +13,19 @@ import { Location } from '@angular/common';
 })
 
 export class AddCategoryComponent implements OnInit {
-	//Admin access stuff, needs to be fixed l8er
-	currentUser:string;
-	ad:boolean;
- 	uid:string[]=['hT2JRuUpxTbc5lS1Q3ig9J2Deze2',
-	'GFTt4EJ9dxXEXC1VFeKjqBnnsE02',
-	'tPk7fgs2TucAYTQUOgAd05UabUb2'
-];
+	signinService:SigninService;
+	categoryName:string="";
+	categoryRef: AngularFireList<Category>;
 
-		categoryName:string="";
-
-		categoryRef: AngularFireList<Category>;
-
-		constructor(private db: AngularFireDatabase,private afAuth: AngularFireAuth,private location: Location) {
-		this.currentUser=afAuth.auth.currentUser.uid;
+	constructor(private db: AngularFireDatabase,private location: Location,private signIn:SigninService) {
 		this.categoryRef = db.list('/Category');
+		this.signinService = signIn;
 	}
 	
-	//Admin access stuff, needs to be fixed l8er
 	isAdmin():boolean {
-    if(this.afAuth.auth.currentUser!= null){
-      this.currentUser=this.afAuth.auth.currentUser.uid;
-      this.ad = false;
-      for(var i = 0; i<this.uid.length;i++)
-      {
-        if (this.currentUser == this.uid[i]) this.ad = true;
-      }
-    	return this.ad;
-    }
-}
-
+		return this.signinService.isAdmin();
+	}
+	
 	onKeyName(value:string){
 		this.categoryName = value;
 	}

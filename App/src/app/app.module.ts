@@ -13,6 +13,9 @@ import { AngularFireStorage, AngularFireStorageModule} from 'angularfire2/storag
 //Routing
 import { AppRoutingModule } from './routing/app-routing.module';
 
+//Services
+import { SigninService } from './services/signin/signin.service';
+
 //Components
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { AdminPanelComponent } from './components/admin-panel/admin-panel.component';
@@ -42,7 +45,7 @@ import { SearchbarComponent } from './components/searchbar/searchbar.component';
 	AppRoutingModule,
 	FormsModule
   ],
-  providers: [AngularFireAuth],
+  providers: [AngularFireAuth, SigninService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

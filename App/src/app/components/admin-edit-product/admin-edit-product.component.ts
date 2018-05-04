@@ -7,6 +7,7 @@ import { AngularFireStorage, AngularFireUploadTask } from 'angularfire2/storage'
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import * as firebase from 'firebase/app';
+import { SigninService } from './../../services/signin/signin.service';
 
 @Component({
 	selector: 'app-admin-edit-product',
@@ -14,6 +15,9 @@ import * as firebase from 'firebase/app';
 	styleUrls: ['./admin-edit-product.component.css']
 })
 export class AdminEditProductComponent implements OnInit {
+	//Signin service
+	signinService:SigninService;
+	
 	// List of products
 	productsList: AngularFireList<Product>;
 
@@ -43,10 +47,17 @@ export class AdminEditProductComponent implements OnInit {
 		private location: Location,
 		private db: AngularFireDatabase,
 		private storage: AngularFireStorage,
-		private afAuth: AngularFireAuth )
+		private afAuth: AngularFireAuth,
+		private signIn:SigninService
+		)
 	{
+		this.signinService = signIn;
 		this.productsList = this.db.list('/Products');
 		this.categoryList = this.db.list('/Category').valueChanges();
+	}
+	
+	isAdmin():boolean {
+		return this.signinService.isAdmin();
 	}
 	
 	getKey() {
