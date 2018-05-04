@@ -20,6 +20,7 @@ import { AddCategoryComponent } from './components/add-category/add-category.com
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { AdminViewProductComponent } from './components/admin-view-product/admin-view-product.component';
 import { AdminEditProductComponent } from './components/admin-edit-product/admin-edit-product.component';
+import { SearchbarComponent } from './components/searchbar/searchbar.component';
 
 @NgModule({
 
@@ -30,7 +31,8 @@ import { AdminEditProductComponent } from './components/admin-edit-product/admin
 	AddCategoryComponent,
 	AddProductComponent,
 	AdminViewProductComponent,
-	AdminEditProductComponent
+	AdminEditProductComponent,
+	SearchbarComponent
   ],
 	imports: [
     AngularFireModule.initializeApp(environment.firebase),
