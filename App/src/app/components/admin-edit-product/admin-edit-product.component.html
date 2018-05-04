@@ -10,7 +10,7 @@
 <button (click)="itemRemove()" class="btn btn-success">Remove product</button>
 	
 <br><br>
-
+<div *ngIf="isAdmin(); else noAccess"> 
 <div *ngIf="product; else loading">
 	
 	<form (ngSubmit)="onSubmit()" #productForm="ngForm">
@@ -99,10 +99,15 @@
 
 	</form>
 	
+	</div>
 </div>
 	
 
 
 <ng-template #loading>
 	The product is loading...
+</ng-template>
+
+<ng-template #noAccess>
+  You don't have access to this page.
 </ng-template>
