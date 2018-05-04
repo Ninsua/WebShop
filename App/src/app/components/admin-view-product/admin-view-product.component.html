@@ -2,8 +2,8 @@
 <br>
 <br>
 
-<div>
-  <div class="center">
+<div *ngIf="isAdmin(); else noAccess">
+  <div class="center" >
     <h3>Products</h3>
 	  
 	<button (click)="goBack()" class="btn btn-success">Go back</button>
@@ -31,3 +31,7 @@
     </div>
  
 </div>
+	
+<ng-template #noAccess>
+  You don't have access to this page.
+</ng-template>
