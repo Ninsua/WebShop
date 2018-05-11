@@ -1,0 +1,99 @@
+<br>
+<br>
+<br>
+<button (click)="goBack()" class="btn btn-success">Go back</button>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+<div class="container">
+  <table id="cart" class="table table-hover table-condensed">
+    <thead>
+      <tr>
+        <th style="width:50%">Product</th>
+        <th style="width:10%">Price</th>
+        <th style="width:8%">Quantity</th>
+        <th style="width:22%" class="text-center">Subtotal</th>
+        <th style="width:10%"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td data-th="Product">
+          <div class="row">
+            <div class="col-sm-2 hidden-xs">
+              <img src= "https://firebasestorage.googleapis.com/v0/b/webshop-53671.appspot.com/o/Products%2Fimages%2F1525356410669_Smaskpung%20Galaxy%20S9%2B%20Purple.jpg?alt=media&token=ab8d725e-d7cc-46c7-a368-b9a1232ac757"
+              alt="..." 
+              class="img-responsive" />
+            </div>
+            <div class="col-sm-10">
+              <h4 class="nomargin">Samsung S9</h4>
+              <p> Samsung Galaxy S9+ är mobilen för dig som ställer höga krav på funktion och säkerhet. Den nyskapade kameran ger dig möjlighet
+              att dokumentera såväl komplicerade processer som viktiga händelser..</p>
+            </div>
+          </div>
+        </td>
+        <td data-th="Price">Kr 9990.00</td>
+        <td data-th="Quantity">
+          <input type="number" class="form-control text-center" value="1">
+        </td>
+        <td data-th="Subtotal" class="text-center">9990.0</td>
+        <td class="actions" data-th="">
+          <button class="btn btn-info btn-sm">
+            <i class="fa fa-refresh"></i>
+          </button>
+          <button class="btn btn-danger btn-sm">
+            <i class="fa fa-trash-o"></i>
+          </button>
+        </td>
+      </tr>
+  <tr>
+    <td data-th="Product">
+      <div class="row">
+        <div class="col-sm-2 hidden-xs">
+          <img src="https://firebasestorage.googleapis.com/v0/b/webshop-53671.appspot.com/o/Products%2Fimages%2F1525422083095_huawei%20p20%20blue_2.jpg?alt=media&token=7a48801f-2ce6-417b-8fac-f8eed4976d35" alt="..." class="img-responsive" />
+        </div>
+        <div class="col-sm-10">
+          <h4 class="nomargin">Huawie P20</h4>
+          <p> HÄR ÄR HUAWEIS SENASTE VÄRSTING Huaweis nya flaggskepp P20 Pro imponerar med kamera och prestanda i toppklass. Ta fantastiskt
+          skarpa bilder med den nya 40 MP-trippelkameran från Leica.</p>
+        </div>
+      </div>
+    </td>
+    <td data-th="Price">Kr 8000</td>
+    <td data-th="Quantity">
+      <input type="number" class="form-control text-center" value="1">
+    </td>
+    <td data-th="Subtotal" class="text-center">8000</td>
+    <td class="actions" data-th="">
+      <button class="btn btn-info btn-sm">
+        <i class="fa fa-refresh"></i>
+      </button>
+      <button class="btn btn-danger btn-sm">
+        <i class="fa fa-trash-o"></i>
+      </button>
+    </td>
+  </tr>
+
+    </tbody>
+    <tfoot>
+      
+      <tr>
+        <td>
+          <a href="#" class="btn btn-warning">
+            <i class="fa fa-angle-left"></i> Continue Shopping</a>
+        </td>
+        <td colspan="2" class="hidden-xs"></td>
+        <td class="hidden-xs text-center">
+          <strong>Total Kr1799.0</strong>
+        </td>
+        <td>
+          <a href="#" class="btn btn-success btn-block">Checkout
+            <i class="fa fa-angle-right"></i>
+          </a>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
