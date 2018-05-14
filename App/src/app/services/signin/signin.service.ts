@@ -7,7 +7,7 @@ import * as firebase from 'firebase/app';
 export class SigninService {
 	
 	afAuth:AngularFireAuth;
-	adminsList:string[];//Observable<any[]>;
+	adminsList:string[] = [];//Observable<any[]>;
 	
 	currentUser:string;
 	admin:boolean=false;
