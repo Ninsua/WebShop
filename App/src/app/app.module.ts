@@ -15,6 +15,8 @@ import { AppRoutingModule } from './routing/app-routing.module';
 
 //Services
 import { SigninService } from './services/signin/signin.service';
+import { BasketService } from './services/basket/basket.service';
+import { CookieService } from 'ngx-cookie-service';
 
 //Components
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -47,7 +49,7 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
 	AppRoutingModule,
 	FormsModule
   ],
-  providers: [AngularFireAuth, SigninService],
+  providers: [AngularFireAuth, SigninService, CookieService, BasketService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
