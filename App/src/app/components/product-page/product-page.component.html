@@ -1,0 +1,28 @@
+  <!-- Search -->
+  <div style = " width: auto; display: table; margin-left: auto; margin-right: auto;">
+    <input #keyWord (keyup) = "onKeyWord(keyWord.value)">
+    <button (click) = "search(keyWord.value)">Search</button>
+   
+    </div>
+    
+  <!-- SHOWWINDOW-->
+    <div class="container">
+      <div class = "row">
+        <div class="col-sm" (click)='onSelect(product)'
+          *ngFor = "let product of productArray">
+          <dir class ="center">
+            <span style="height:100%;display:inline-block;vertical-align:middle; text-align:center; height:150px; width:150px;border:1px solid black">
+                <span style="height:100%;display:inline-block;vertical-align:middle; text-align:center; height:150px"></span>
+                <img src = {{product.imageURL}} alt="" height="140px" style="vertical-align:middle; text-align:center">
+                <span style="height:100%;display:inline-block;vertical-align:middle; text-align:center; height:150px"></span>
+            </span>
+            
+          </dir>
+          <div class="center">{{product.brand}}</div>
+          <div class="center">{{product.name}}</div>
+          <div class="center">{{product.price}} SEK</div>
+        </div>
+      </div>
+   
+  </div>
+    
