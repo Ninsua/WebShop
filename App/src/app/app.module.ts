@@ -15,6 +15,8 @@ import { AppRoutingModule } from './routing/app-routing.module';
 
 //Services
 import { SigninService } from './services/signin/signin.service';
+import { BasketService } from './services/basket/basket.service';
+import { CookieService } from 'ngx-cookie-service';
 
 //Components
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -24,6 +26,7 @@ import { AddProductComponent } from './components/add-product/add-product.compon
 import { AdminViewProductComponent } from './components/admin-view-product/admin-view-product.component';
 import { AdminEditProductComponent } from './components/admin-edit-product/admin-edit-product.component';
 import { SearchbarComponent } from './components/searchbar/searchbar.component';
+import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 
 @NgModule({
 
@@ -35,7 +38,8 @@ import { SearchbarComponent } from './components/searchbar/searchbar.component';
 	AddProductComponent,
 	AdminViewProductComponent,
 	AdminEditProductComponent,
-	SearchbarComponent
+	SearchbarComponent,
+	ShoppingCartComponent
   ],
 	imports: [
     AngularFireModule.initializeApp(environment.firebase),
@@ -45,7 +49,7 @@ import { SearchbarComponent } from './components/searchbar/searchbar.component';
 	AppRoutingModule,
 	FormsModule
   ],
-  providers: [AngularFireAuth, SigninService],
+  providers: [AngularFireAuth, SigninService, CookieService, BasketService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
