@@ -17,8 +17,9 @@ export class ProductPageComponent implements OnInit {
   productRef:AngularFireList<any>;
   productList:Observable<any[]>;
   productArray:Product[];
-  newProductArray:Product[] = [];
-  keyWords:string = "";
+  productArray2:Product[];
+  //newProductArray:Product[] = [];
+  public keyWords:string = "";
   imageUrlList:Observable<string[]>;
 	
 	signinService:SigninService;
@@ -38,20 +39,25 @@ export class ProductPageComponent implements OnInit {
     });
 
     this.productList.subscribe(
-      (value:Product[]) => {this.productArray = value}
+      (value:Product[]) => {this.productArray = value;
+                            this.productArray2 = value;}
     );
+
+
     
   }
 
-  search(){
+  search(){ 
+    this.productArray = this.productArray2;
     if (this.keyWords != ""){
+      let newProductArray:Product[] = [];
       for (let product of this.productArray){
         if (product.name.toLowerCase().indexOf(this.keyWords) >=0 || product.brand.toLowerCase().indexOf(this.keyWords) >= 0){
-          this.newProductArray.push(product);
+          newProductArray.push(product);
         }
       }
 
-      this.productArray = this.newProductArray;
+      this.productArray = newProductArray;
     }
   }
 
@@ -64,7 +70,7 @@ export class ProductPageComponent implements OnInit {
 	}
 
   onSelect(product){
-    //this.router.navigate(['admin/edit_product', product.key ]);
+    this.router.navigate(['admin/edit_product', product.key ]);
   }
 	
 	goBack(): void {
@@ -73,6 +79,5 @@ export class ProductPageComponent implements OnInit {
 
   ngOnInit() {
   }
-
 
 }
