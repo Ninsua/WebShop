@@ -1,25 +1,45 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
   <!-- Search -->
-  <div style = " width: auto; display: table; margin-left: auto; margin-right: auto;">
+  <div style = "padding-bottom: 16px; padding-top: 32px; width: auto; display: table; margin-left: auto; margin-right: auto;">
     <input #keyWord (keyup) = "onKeyWord(keyWord.value)">
     <button (click) = "search(keyWords)">Search</button>
-   
-    </div>
-    
-  <!-- SHOWWINDOW-->
-  <div class="container">
-    <div class = "row">
-      <div class="col-sm" *ngFor = "let product of productArray">
-        <dir class ="center">
-          <span style="height:100%;display:inline-block;vertical-align:middle; text-align:center; height:150px; width:150px;border:1px solid black">
-              <span style="height:100%;display:inline-block;vertical-align:middle; text-align:center; height:150px"></span>
-              <img src = {{product.imageURL}} alt="" height="140px" style="vertical-align:middle; text-align:center">
-              <span style="height:100%;display:inline-block;vertical-align:middle; text-align:center; height:150px"></span>
-          </span>
-        </dir>
-        <div class="center">{{product.brand}}</div>
-        <div class="center">{{product.name}}</div>
-        <div class="center">{{product.price}} SEK</div>
-      </div>
-    </div>
+  </div>
+<!-- Product Table -->
+  <div class="container" style = "padding-top: 16px;">
+    <table id="cart" class="table table-hover table-condensed">
+      <tbody>
+        <tr *ngFor = "let product of productArray">
+          <td style="padding-left : 32px;">
+            <div class="row">
+              <div class="media hidden-xs">
+                <a class ="thumbnail pull-left"
+                href="">
+                <img class =" media-object" src="{{product.imageURL}}" 
+                style="height: 128px; "/>
+              </a>
+              </div>
+              <div class="col-sm-10">
+                <h4 class="nomargin">{{product.brand}} {{product.name}}</h4>
+                <p>{{product.description}}</p>
+              </div>
+            </div>
+          </td>
+          <td >
+             <div>
+                Price: {{product.price}} SEK
+             </div>
+             <br>
+             <div>
+                <button class="btn btn-success">Add to Cart</button>
+             </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
     
