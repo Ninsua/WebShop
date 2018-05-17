@@ -46,6 +46,7 @@ export class ShoppingCartComponent implements OnInit {
 	removeProduct(index:number) {
 		this.basket.remove(index);
 		this.refreshLists();
+		this.refreshPrice();
 	}
 
 
