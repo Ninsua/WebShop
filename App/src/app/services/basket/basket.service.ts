@@ -28,20 +28,38 @@ export class BasketService {
 		} else { //If the cookies exists: import, convert and save the content into lists
 			console.log("cookies exist");
 			this.itemsList = this.stringToStringList(this.cookieService.get('items'));
-			this.quantityList = this.stringToNumberList(this.cookieService.get('quantity'));
-			this.getProducts();
-			setTimeout(this.updateTotalPrice(),10000);
+			if (this.itemsList[0] === "") { //Check to make sure an empty cookie doesn't create an empty product
+				this.itemsList = [];
+				this.totalPrice = 0;
+			} else {
+				this.quantityList = this.stringToNumberList(this.cookieService.get('quantity'));
+				this.getProducts();
+				setTimeout(this.updateTotalPrice(),10000);
+		}
 		}
 	}
 	
 	//API
 	
 	add(key:string) {
-		this.itemsList.push(key);
-		this.quantityList.push(1);
-		this.productsList.push(this.getDbObject(key));
-		setTimeout(this.updateTotalPrice(),10000);
-		setTimeout(this.updateCookies(),5000);
+		var exists:boolean = false;
+		var index:number;
+		for (var i = 0; i<this.itemsList.length; i++) {
+			if (this.itemsList[i] === key) {
+				exists = true;
+				index = i;
+			}
+		}
+
+		if (!exists) {
+			this.itemsList.push(key);
+			this.quantityList.push(1);
+			this.productsList.push(this.getDbObject(key));
+			//setTimeout(this.updateTotalPrice(),10000);
+			setTimeout(this.updateCookies(),5000);
+		} else {
+			this.editQuantity(index,this.quantityList[index]+1); 
+		}
 	}
 	
 	addQuantity(key:string,quantity:number) {
@@ -122,10 +140,10 @@ export class BasketService {
 	// Remove mock and use normal list
 	createCookies() {
 		if (!this.cookieService.check('items')) {
-			this.cookieService.set('items',this.stringListToString(this.itemsMock));
+			this.cookieService.set('items',"");
 		}
 		if (!this.cookieService.check('quantity')) {
-			this.cookieService.set( 'quantity',this.numberListToString(this.quantityMock));
+			this.cookieService.set( 'quantity',"");
 		}
 	}
 
