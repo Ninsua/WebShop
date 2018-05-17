@@ -12,9 +12,6 @@ export class BasketService {
 	totalPrice:number=0;
 
 	itemsMock:string[] = [
-		'-LBaIejZp36pWtmDVL7q',
-		'-LBaJaPnUQofAtKG1god',
-		'-LBaJybpaZnDgW_jKCif'
 	];
 	
 	quantityMock:number[] = [5,2,9];
@@ -60,6 +57,7 @@ export class BasketService {
 		} else {
 			this.editQuantity(index,this.quantityList[index]+1); 
 		}
+
 	}
 	
 	addQuantity(key:string,quantity:number) {
