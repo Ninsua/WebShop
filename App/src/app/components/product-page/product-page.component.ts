@@ -7,6 +7,7 @@ import { Product } from '../../classes/classes';
 import { AngularFireList } from 'angularfire2/database';
 import { Location } from '@angular/common';
 import { SigninService } from './../../services/signin/signin.service';
+import { BasketService } from '../../services/basket/basket.service';
 
 @Component({
   selector: 'app-product-page',
@@ -29,7 +30,8 @@ export class ProductPageComponent implements OnInit {
 	private afstorage: AngularFireStorage,
 	private router:Router,
 	private location: Location,
-	private signIn:SigninService
+  private signIn:SigninService,
+  private basket: BasketService
 	) {
 		this.signinService = signIn;
     	//get products from database
@@ -70,7 +72,8 @@ export class ProductPageComponent implements OnInit {
 	}
 
   onSelect(product){
-    this.router.navigate(['admin/edit_product', product.key ]);
+    console.log(product.key);
+    this.basket.add(product.key);
   }
 	
 	goBack(): void {
