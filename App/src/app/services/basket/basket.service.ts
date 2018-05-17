@@ -79,6 +79,9 @@ export class BasketService {
 		this.productsList.splice(index,1);
 		setTimeout(this.updateTotalPrice(),10000);
 		this.updateCookies();
+		if (this.itemsList.length == 0) {
+			this.totalPrice = 0;
+		}
 	}
 	
 	getItemsList():string[] {
