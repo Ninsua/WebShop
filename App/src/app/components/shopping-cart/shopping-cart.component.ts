@@ -1,4 +1,4 @@
-import { Component, OnInit, NgZone,ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BasketService } from './../../services/basket/basket.service';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { Product } from '../../classes/classes';
@@ -24,12 +24,15 @@ export class ShoppingCartComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		this.itemsList=this.basket.getItemsList();
-		this.quantityList=this.basket.getQuantityList();
-		setTimeout(this.getProducts(),200);
+		setTimeout(this.itemsList=this.basket.getItemsList(),200);
+		setTimeout(this.quantityList=this.basket.getQuantityList(),220);
+		setTimeout(this.getProducts(),240);
 	}
 	
 	refreshQuantity(index:number) {
+		if (this.quantityList[index] > this.productsList[index].numInStock || this.quantityList[index] < 0) {
+			return;
+		}
 		this.basket.editQuantity(index,this.quantityList[index]);
 		this.refreshPrice();
 	}
@@ -45,7 +48,22 @@ export class ShoppingCartComponent implements OnInit {
 		this.refreshLists();
 	}
 
+
+
 	//Private methods
+
+	finalQuantityCheck():boolean {
+		for (var i = 0;i<this.quantityList.length; i++) {
+			if (this.quantityList[i] > this.productsList[i].numInStock || this.quantityList[i] < 0) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	getMax(index:number):number {
+		return this.productsList[index].numInStock;
+	}
 
 	refreshLists() {
 		this.itemsList=this.basket.getItemsList();
