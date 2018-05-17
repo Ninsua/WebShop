@@ -12,9 +12,6 @@ export class BasketService {
 	totalPrice:number=0;
 
 	itemsMock:string[] = [
-		'-LBaIejZp36pWtmDVL7q',
-		'-LBaJaPnUQofAtKG1god',
-		'-LBaJybpaZnDgW_jKCif'
 	];
 	
 	quantityMock:number[] = [5,2,9];
@@ -40,7 +37,7 @@ export class BasketService {
 		this.itemsList.push(key);
 		this.quantityList.push(1);
 		this.productsList.push(this.getDbObject(key));
-		setTimeout(this.updateTotalPrice(),10000);
+		//setTimeout(this.updateTotalPrice(),10000);
 		setTimeout(this.updateCookies(),5000);
 	}
 	
