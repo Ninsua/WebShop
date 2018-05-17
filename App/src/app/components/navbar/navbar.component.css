@@ -64,6 +64,8 @@ h5 {
     text-align: center;
     border-left: solid;
     border-right: solid;
+    display: flex;
+    align-items: center;
 }
 
 .signIn {
@@ -175,6 +177,16 @@ nav .active {
 nav li.active a:hover {
     background-color: #4CAF50;
 }
+
+
+#basketIcon {
+    padding: 0%;
+}
+#basketIcon:hover {
+    background-color: #333;
+    opacity: 0.8;
+}
+
 
 
 
