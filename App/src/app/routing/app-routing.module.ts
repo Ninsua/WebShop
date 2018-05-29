@@ -11,6 +11,7 @@ import { ShoppingCartComponent } from './../components/shopping-cart/shopping-ca
 import { ProductPageComponent } from '../components/product-page/product-page.component';
 import { ProductDetailsComponent } from '../components/product-details/product-details.component';
 import { UserProfileComponent } from '../components/user-profile/user-profile.component';
+import { AboutComponent } from '../components/about/about.component';
 
 const routes: Routes = [
 	//{ path: '', redirectTo: '/admin', pathMatch: 'full' }, //"Home" can be changed later
@@ -22,7 +23,8 @@ const routes: Routes = [
 	{ path: 'shoppingcart', component: ShoppingCartComponent },
 	{ path: 'products', component: ProductPageComponent },
 	{ path: 'product/:key', component: ProductDetailsComponent },
-	{ path: 'user-profile', component: UserProfileComponent }
+	{ path: 'user-profile', component: UserProfileComponent },
+	{ path: 'about', component: AboutComponent }
 ];
 @NgModule({
   imports: [

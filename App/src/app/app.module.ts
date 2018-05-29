@@ -30,6 +30,8 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
 import { ProductPageComponent } from './components/product-page/product-page.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { UserProfileComponent} from './components/user-profile/user-profile.component';
+import { AboutComponent } from './components/about/about.component';
+
 @NgModule({
 
   declarations: [
@@ -44,7 +46,8 @@ import { UserProfileComponent} from './components/user-profile/user-profile.comp
 	ShoppingCartComponent,
 	ProductPageComponent,
 	ProductDetailsComponent,
-	UserProfileComponent
+	UserProfileComponent,
+	AboutComponent
   ],
 	imports: [
     AngularFireModule.initializeApp(environment.firebase),

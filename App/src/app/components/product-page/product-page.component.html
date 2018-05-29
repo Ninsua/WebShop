@@ -14,9 +14,9 @@
 
     <table id="cart" class="table table-hover table-condensed">
       <tbody>
-        <tr *ngFor = "let product of productArray">
+        <tr *ngFor = "let product of productArray" class="product">
           <td style="padding-left : 32px;">
-            <div class="row" (click)='goTodetails(product)'>
+            <div class="row">
               <div class="media hidden-xs">
                 <div class ="thumbnail pull-left"
                 href="">
@@ -24,9 +24,10 @@
                 style="height: 128px;">
               </div>
               </div>
-              <div class="col-sm-10">
-                  {{product.brand}} {{product.name}}
-              </div>
+              <a class="col-sm-10 text-dark" routerLink="/product/{{product.key}}">
+                <h4>{{product.brand}} {{product.name}}</h4>
+                {{getDesc(product)}}
+              </a>
             </div>
           </td>
           <td >
