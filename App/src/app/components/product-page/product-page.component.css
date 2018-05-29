@@ -25,6 +25,11 @@
 }
 .actions .btn-danger{
   float:right;
+  display:table;
+}
+
+.searchInput {
+  width: 50%;
 }
 
 table#cart tbody td { display: block; padding: .6rem; min-width:320px;}

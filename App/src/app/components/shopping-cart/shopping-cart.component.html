@@ -46,7 +46,7 @@
         <td data-th="Subtotal" class="text-center">{{calculateSubtotal(product.price,quantityList[i])}}</td>
         <td class="actions" data-th="">
 
-          <button class="btn btn-info btn-sm" (click)="refreshQuantity(i)" title="Update cart">
+          <button class="btn btn-info btn-sm" (click)="refreshQuantity(i)" title="Update cart" [disabled]="(disableUpdate(i))">
             <i class="fa fa-refresh"></i>
           </button>
 

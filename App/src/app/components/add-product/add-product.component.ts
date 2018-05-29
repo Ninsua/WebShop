@@ -6,6 +6,7 @@ import { Product, Category } from '../../classes/classes';
 import { AngularFireStorage, AngularFireUploadTask } from 'angularfire2/storage'; 
 import { Location } from '@angular/common';
 import { SigninService } from './../../services/signin/signin.service';
+import { finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'app-add-product',
@@ -69,7 +70,7 @@ export class AddProductComponent implements OnInit {
     const path = 'Products/images/'+(new Date().getTime())+'_'+file.name;
 	//Save path to product to be uploaded
 	this.imagePath = path;
-	console.log(path);
+	console.log(path);	
     // The main task
     this.task = this.storage.upload(path, file);
     // progress monitoring 
@@ -78,10 +79,17 @@ export class AddProductComponent implements OnInit {
     // download URL
     this.downloadURL = this. task.downloadURL();
     this.downloadURL.subscribe(url => {
-      if (url) {
-        this.imageURL = url;
-      }
-    });
+    if (url) {
+    	this.imageURL = url;
+    }
+	});
+
+	//For later versions of angularfire2
+    /*const fileRef = this.storage.ref(path);
+    this.task.snapshotChanges().pipe(
+        finalize(() => this.downloadURL = fileRef.getDownloadURL() )
+     )
+    .subscribe()*/
   }
 
   onKeyPrice(value: number) {
@@ -103,6 +111,7 @@ export class AddProductComponent implements OnInit {
 
   // button click upload to database
   buttonClick() {
+    //console.log("this.name.length "+this.name.length+" this.selectedCategory.length "+this.selectedCategory.length+" this.imageURL.length: "+this.imageURL.length+" isNaN(this.price): "+isNaN(this.price)+" isNaN(this.numInStock): "+isNaN(this.numInStock)+" this.description.length: "+this.description.length);
 	if (this.name.length == 0 || this.selectedCategory.length == 0 || this.imageURL.length == 0 || isNaN(this.price) || isNaN(this.numInStock) || this.description.length == 0) {
 		alert('Some properties are missing!');
 	} else {

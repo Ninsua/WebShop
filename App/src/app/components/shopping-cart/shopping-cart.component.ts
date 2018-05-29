@@ -39,8 +39,6 @@ export class ShoppingCartComponent implements OnInit {
 	
 	refreshPrice() {
 		this.totalPrice = this.basket.getTotalPrice();
-		console.log("refreshed price");
-		console.log(this.basket.getTotalPrice());
 	}
 
 	removeProduct(index:number) {
@@ -50,14 +48,38 @@ export class ShoppingCartComponent implements OnInit {
 	}
 
 
-
 	//Private methods
 
 	finalQuantityCheck():boolean {
+		var count = 0; //Count total quantity sum, if 0 or less checkout does not work
+		for (var i = 0; i<this.itemsList.length; i++) {
+			count = count + this.quantityList[i];
+			if (isNaN(this.quantityList[i]) || this.quantityList[i] == null) { //Check if any quantityList errors
+				return true;
+			}
+		}
+
+		if (count <= 0) {
+			return true;
+		}
+
 		for (var i = 0;i<this.quantityList.length; i++) {
 			if (this.quantityList[i] > this.productsList[i].numInStock || this.quantityList[i] < 0) {
 				return true;
 			}
+		}
+		if (this.quantityList.length == 0) {
+			return true;
+		}
+		return false;
+	}
+
+	disableUpdate(index:number):boolean {
+		if (isNaN(this.quantityList[index]) || this.quantityList[index] == null) {
+			return true;
+		}
+		if (this.quantityList[index] > this.productsList[index].numInStock || this.quantityList[index] < 0) {
+			return true;
 		}
 		return false;
 	}
@@ -77,6 +99,10 @@ export class ShoppingCartComponent implements OnInit {
 	}
 
 	calculateSubtotal(price:number,quantity:number):number {
+		if (price*quantity < 0 || isNaN(quantity) || quantity == null) {
+			return 0;
+		}
+
 		return price*quantity;
 	}
 

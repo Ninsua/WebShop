@@ -8,6 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import * as firebase from 'firebase/app';
 import { SigninService } from './../../services/signin/signin.service';
+import { finalize } from 'rxjs/operators';
 
 @Component({
 	selector: 'app-admin-edit-product',
@@ -95,10 +96,17 @@ export class AdminEditProductComponent implements OnInit {
     // download URL
     this.downloadURL = this. task.downloadURL();
     this.downloadURL.subscribe(url => {
-      if (url) {
-        this.product.imageURL = url;
-      }
-    });
+    if (url) {
+    	this.product.imageURL = url;
+    }
+	});
+
+	//For later versions of angularfire2
+    /*const fileRef = this.storage.ref(path);
+    this.task.snapshotChanges().pipe(
+        finalize(() => this.downloadURL = fileRef.getDownloadURL() )
+     )
+    .subscribe()*/
   }
 	
 	onSubmit() {

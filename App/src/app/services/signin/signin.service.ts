@@ -14,8 +14,8 @@ export class SigninService {
 
 	constructor(public auth: AngularFireAuth,private db: AngularFireDatabase) {
  		this.afAuth = auth;
-		this.db.list('/Admins/').valueChanges()
-			.subscribe((ad:string[]) => this.adminsList = ad);
+		this.db.list('Admins').valueChanges()
+			.subscribe((ad:string[]) => {this.adminsList = ad; console.log(ad);});
 	}
 	
 	signIn() {
