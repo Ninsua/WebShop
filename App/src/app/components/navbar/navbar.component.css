@@ -52,6 +52,7 @@ h5 {
     margin: 10%;
     padding: 0px 16px;
     color: white;
+    font-size: 13px;
 }
 
 #welcomeText {
@@ -172,11 +173,13 @@ input {
 }
 
 nav .active {
-    background-color: #4CAF50;
+    background-color: rgb(235,63,0);
+
+    
 }
 
 nav li.active a:hover {
-    background-color: #4CAF50;
+    background-color: orangered;
 }
 
 
@@ -184,6 +187,14 @@ nav li.active a:hover {
     padding: 0%;
 }
 #basketIcon:hover {
+    background-color: #333;
+    opacity: 0.8;
+
+#profileIcon {
+    padding: 0px 16px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#profileIcon:hover {
     background-color: #333;
     opacity: 0.8;
 }
