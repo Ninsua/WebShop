@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BasketService } from './../../services/basket/basket.service';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
-import { Product } from '../../classes/classes';
+import { Product, Order } from '../../classes/classes';
 import { Location } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -19,7 +19,9 @@ export class ShoppingCartComponent implements OnInit {
 	
 	totalPrice:number=0;
 
-	constructor(private basket:BasketService, private db: AngularFireDatabase,private location: Location) {
+	orderRef:AngularFireList<Order>;
+
+	constructor(private basket:BasketService, private db: AngularFireDatabase,private location: Location, private router:Router) {
 		
 	}
 
@@ -90,6 +92,9 @@ export class ShoppingCartComponent implements OnInit {
 		}
 	}
 
+	checkOut(){
+		 this.router.navigateByUrl('check-out');
+	}
 
 	goBack(): void {
 		this.location.back();

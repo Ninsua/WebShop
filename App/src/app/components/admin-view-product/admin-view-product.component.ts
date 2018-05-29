@@ -32,8 +32,7 @@ export class AdminViewProductComponent implements OnInit {
 		this.signinService = signIn;
     	//get products from database
     	this.productList = db.list('/Products').snapshotChanges().map(changes => {
-			return changes.map( c => ({ key: c.payload.key, ...c.payload.val()
-      }))
+			return changes.map( c => ({ key: c.payload.key, ...c.payload.val()}))
     });
     
   }
