@@ -1,0 +1,12 @@
+ body {
+      padding-top: 70px;
+      /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    }
+
+    .othertop {
+      margin-top: 40px;
+    }
+    Upload photo{
+margin-top: 10px;
+position: right;
+    }
