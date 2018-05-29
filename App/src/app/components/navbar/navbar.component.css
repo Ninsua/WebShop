@@ -189,7 +189,8 @@ nav li.active a:hover {
 #basketIcon:hover {
     background-color: #333;
     opacity: 0.8;
-
+}
+  
 #profileIcon {
     padding: 0px 16px;
     font-family: Arial, Helvetica, sans-serif;
