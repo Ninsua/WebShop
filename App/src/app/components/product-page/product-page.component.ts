@@ -103,4 +103,8 @@ export class ProductPageComponent implements OnInit {
     this.router.navigate(['product', product.key ]);
   }
 
+  getDesc(product):string {
+    return product.description.substr(0,150)+"...";
+  }
+
 }
