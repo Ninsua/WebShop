@@ -1,12 +1,12 @@
-<h3>
+<div *ngIf="isAdmin(); else noAccess" style="padding-left: 10%; padding-right: 10%;"> 
+	<h3>
 	Edit product
-</h3>
+	</h3>
 
-<button (click)="goBack()" class="btn btn-success">Go back</button>
-<button (click)="itemRemove()" class="btn btn-success">Remove product</button>
+	<button (click)="goBack()" class="btn btn-success">Go back</button>
+	<button (click)="itemRemove()" class="btn btn-success">Remove product</button>
 	
 <br><br>
-<div *ngIf="isAdmin(); else noAccess"> 
 <div *ngIf="product; else loading">
 	
 	<form (ngSubmit)="onSubmit()" #productForm="ngForm">
@@ -83,7 +83,7 @@
 		<div>
 			<br>
 			<label for="file" >Change product image:</label>
-			<br><br>
+			<br>
    			<input type="file" (change)= "startUpload($event.target.files)" class="btn btn-success">
 			<br><br>
 			Current image:
