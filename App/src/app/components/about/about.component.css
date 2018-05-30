@@ -1,0 +1,24 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+  .icon{
+	display: inline-block;
+}
+.facebook{
+	color:#385591;	
+}
+.twitter{
+	color:#4eaee9;
+}
+.email{
+
+}
+.contactus{
+	margin-top:10%;
+}
+.aboutus {
+	margin-top:8%;
+}
+
+.center {
+	align-items: center;
+}

@@ -109,6 +109,10 @@ export class BasketService {
 		return this.totalPrice;
 	}
 
+	getTotalQuantity():number {
+		return this.itemsList.length;
+	}
+
 	//Private logic
 
 	getProducts() {

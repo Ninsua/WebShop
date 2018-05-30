@@ -1,7 +1,3 @@
-<br>
-<br>
-<br>
-
 <div class="center" *ngIf="isAdmin(); else noAccess">
 	
 	<h3>Add a Product </h3>
@@ -22,7 +18,7 @@
  Select a category:
 <div>
   <select [value]=selectedCategory 
-  (change)= "selectedCategory=$event.target.value">
+  (change)= "selectedCategory=$event.target.value" class="form-control">
     <option *ngFor = "let category of categoryList | async" [value]="category.name">
             {{category.name}}
     </option>
@@ -36,7 +32,7 @@
 <div >
   <div>
     <label for = "file" > Upload product picture:</label >  <br/>
-    <input type = "file" (change)= "startUpload($event.target.files)" >
+    <input type = "file" (change)= "startUpload($event.target.files)" class="btn btn-success">
   </div>
 
   <div *ngIf = "percentage | async as pct">
@@ -72,7 +68,7 @@
   
 <!--Submit Button-->
 <div>
-  <button (click)="buttonClick()">
+  <button (click)="buttonClick()" class="btn btn-success">
     Submit
   </button>
         {{selectedBrand}}

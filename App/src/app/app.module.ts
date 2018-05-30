@@ -28,7 +28,9 @@ import { AdminEditProductComponent } from './components/admin-edit-product/admin
 import { SearchbarComponent } from './components/searchbar/searchbar.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { ProductPageComponent } from './components/product-page/product-page.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { UserProfileComponent} from './components/user-profile/user-profile.component';
+import { AboutComponent } from './components/about/about.component';
 
 @NgModule({
 
@@ -43,7 +45,9 @@ import { UserProfileComponent} from './components/user-profile/user-profile.comp
 	SearchbarComponent,
 	ShoppingCartComponent,
 	ProductPageComponent,
-	UserProfileComponent
+	ProductDetailsComponent,
+	UserProfileComponent,
+	AboutComponent
   ],
 	imports: [
     AngularFireModule.initializeApp(environment.firebase),

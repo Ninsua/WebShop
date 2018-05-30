@@ -1,25 +1,18 @@
-<br><br><br>
-<div *ngIf="isAdmin(); else noAccess">
+<div *ngIf="isAdmin(); else noAccess" style="text-align: center;">
 
     <h3>Add a Category </h3>
 
-	<button (click)="goBack()">Go back</button>
-	<br>
-	<br>
-    
+	<button (click)="goBack()" class="btn btn-success">Go back</button>
+  <br>
+  <br>
     <!--Input Product Name-->
     
     <div>      
-      Category name:
-      <input #inputName (keyup)="onKeyName(inputName.value)">
-    </div>
-
-    <div>
-      <button (click)= "buttonClick()">
-        Submit
+      <input #inputName (keyup)="onKeyName(inputName.value)" placeholder="Category name...">
+      <button (click)= "buttonClick()" class="btn btn-success">
+      Submit
       </button>
     </div>
-        
   </div>
 
 <ng-template #noAccess>

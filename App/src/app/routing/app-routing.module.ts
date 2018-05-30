@@ -9,7 +9,10 @@ import { AdminEditProductComponent } from './../components/admin-edit-product/ad
 import { AdminViewProductComponent } from './../components/admin-view-product/admin-view-product.component';
 import { ShoppingCartComponent } from './../components/shopping-cart/shopping-cart.component';
 import { ProductPageComponent } from '../components/product-page/product-page.component';
+import { ProductDetailsComponent } from '../components/product-details/product-details.component';
 import { UserProfileComponent } from '../components/user-profile/user-profile.component';
+import { AboutComponent } from '../components/about/about.component';
+
 const routes: Routes = [
 	//{ path: '', redirectTo: '/admin', pathMatch: 'full' }, //"Home" can be changed later
 	{ path: 'admin', component: AdminPanelComponent },
@@ -18,8 +21,10 @@ const routes: Routes = [
 	{ path: 'admin/edit_product', component: AdminViewProductComponent },
 	{ path: 'admin/edit_product/:key', component: AdminEditProductComponent },
 	{ path: 'shoppingcart', component: ShoppingCartComponent },
-	{path: 'products', component: ProductPageComponent},
-	{path:'user-profile', component:UserProfileComponent}
+	{ path: 'products', component: ProductPageComponent },
+	{ path: 'product/:key', component: ProductDetailsComponent },
+	{ path: 'user-profile', component: UserProfileComponent },
+	{ path: 'about', component: AboutComponent }
 ];
 @NgModule({
   imports: [

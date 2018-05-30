@@ -51,16 +51,35 @@ export class ProductPageComponent implements OnInit {
 
   search(){ 
     this.productArray = this.productArray2;
-    if (this.keyWords != ""){
+
+    if (this.keyWords != "") {
       let newProductArray:Product[] = [];
-      for (let product of this.productArray){
-        if (product.name.toLowerCase().indexOf(this.keyWords) >=0 || product.brand.toLowerCase().indexOf(this.keyWords) >= 0){
+
+      var keyWordArray:string[] = this.keyWords.split(" ");
+
+      for (let product of this.productArray) {
+        var brandAndNameSearch:string = product.brand.toLowerCase() + " " + product.name.toLowerCase();
+        
+        var count:number = 0;
+        for (var i = 0; i < keyWordArray.length; i++) {
+          var currentKeyword:string = keyWordArray[i].toLowerCase();
+
+          if (brandAndNameSearch.includes(currentKeyword)) {
+            count++;
+          }
+        }
+
+        if (count == keyWordArray.length) {
           newProductArray.push(product);
         }
+
       }
 
       this.productArray = newProductArray;
     }
+  }
+
+  ngOnInit() {
   }
 
   onKeyWord(value:string){
@@ -80,7 +99,12 @@ export class ProductPageComponent implements OnInit {
 		this.location.back();
 	}
 
-  ngOnInit() {
+  goTodetails(product){
+    this.router.navigate(['product', product.key ]);
+  }
+
+  getDesc(product):string {
+    return product.description.substr(0,150)+"...";
   }
 
 }

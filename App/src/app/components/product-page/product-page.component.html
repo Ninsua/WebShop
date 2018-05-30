@@ -4,34 +4,35 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
-  <!-- Search -->
-  <div style = "padding-bottom: 16px; padding-top: 32px; width: auto; display: table; margin-left: auto; margin-right: auto;">
-    <input #keyWord (keyup) = "onKeyWord(keyWord.value)">
-    <button (click) = "search(keyWords)">Search</button>
-  </div>
 <!-- Product Table -->
   <div class="container" style = "padding-top: 16px;">
+
+  <!-- Search -->
+  <div style="padding-bottom: 16px; padding-top: 32px; width: 100%; display: table; margin-left: auto; margin-right: auto; text-align: center;">
+    <input style="width: 50%;" #keyWord (keyup)="onKeyWord(keyWord.value); search(keyWords)" (keyup.enter)="search(keyWords)" placeholder="Search...">
+  </div>
+
     <table id="cart" class="table table-hover table-condensed">
       <tbody>
-        <tr *ngFor = "let product of productArray">
+        <tr *ngFor = "let product of productArray" class="product">
           <td style="padding-left : 32px;">
             <div class="row">
               <div class="media hidden-xs">
-                <a class ="thumbnail pull-left"
+                <div class ="thumbnail pull-left"
                 href="">
                 <img class =" media-object" src="{{product.imageURL}}" 
-                style="height: 128px; "/>
+                style="height: 128px;">
+              </div>
+              </div>
+              <a class="col-sm-10 text-dark" routerLink="/product/{{product.key}}">
+                <h4>{{product.brand}} {{product.name}}</h4>
+                {{getDesc(product)}}
               </a>
-              </div>
-              <div class="col-sm-10">
-                <h4 class="nomargin">{{product.brand}} {{product.name}}</h4>
-                <p>{{product.description}}</p>
-              </div>
             </div>
           </td>
           <td >
              <div>
-                Price: {{product.price}} SEK
+                {{product.price}} SEK
              </div>
              <br>
              <div>

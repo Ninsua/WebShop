@@ -1,0 +1,54 @@
+<html lang="en">
+  <body>
+
+    <!-- Page Content -->
+    <div class="container">
+
+    	<button (click)="goBack()" class="btn btn-success">Go back</button>
+
+    	 <div class="row" *ngIf="product; else loading">
+
+        <!-- <div > -->
+
+			   <div class="col-lg-4">
+
+            		<div class="card mt-1">
+            			<div id="disImg">
+          	   			<img src="{{product.imageURL}}" alt="">
+          		  	</div>
+          		  </div>
+          	<!-- /.card -->
+
+			   </div>
+
+          	<div class="col-lg-8">
+         	  	<div class="card card-outline-secondary my-4">
+              	<div class="card-header">
+                  <h2>{{product.brand}} {{product.name}}</h2>
+            		</div>
+            	 	
+                <div class="card-body">
+   						   <h3>{{product.price}} SEK</h3>
+              	 <button class="btn btn-success" (click)='addToCart()'>Add to Cart</button>
+             		 <hr>
+						      <h5>{{product.description}}</h5>
+              	</div>
+          	   </div>
+        	   </div>
+          <!-- /.card -->
+
+    	 </div>
+
+      <!-- </div> -->
+
+    </div>
+
+  </body>
+
+<ng-template #loading>
+  <div>
+    The product is loading and/or does not exist!
+  </div>
+</ng-template>
+
+</html>
