@@ -67,8 +67,8 @@
         <td class="hidden-xs text-center">
           <strong>Total {{totalPrice}} SEK</strong>
         </td>
-        <td>
-          <button href="#" class="btn btn-success btn-block"
+        <td routerLinkActive='active' >
+          <button routerLink="/checkout" href="#" class="btn btn-success btn-block"
           [disabled]="(finalQuantityCheck())">Checkout
             <i class="fa fa-angle-right"></i>
           </button>

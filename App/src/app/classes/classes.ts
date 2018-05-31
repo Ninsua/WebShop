@@ -26,6 +26,37 @@ export class Category {
     }
 }
 
+export class Address{
+    street:string;
+    zipCode: string;
+    city:string;
+    country:string;
+
+    constructor(street:string, zipCode:string, city:string, country:string){
+        this.street = street;
+        this.zipCode = zipCode;
+        this.city = city;
+        this.country = country;
+    }
+}
+
 export class Order {
+    date:string;
+    user:string;
+    address:Address
+    ifPayed: boolean;
+    ifShipped: boolean;
+    itemListStr:string;
+    quantityListStr:string;
     
+
+    constructor(user:string, address:Address, ifPayed:boolean, ifShipped:boolean, itemListStr:string, quantityListStr:string){
+        this.date = new Date().toUTCString();
+        this.user = user;
+        this.address = address;
+        this.ifPayed = ifPayed;
+        this.ifShipped = ifShipped;
+        this.itemListStr = itemListStr;
+        this.quantityListStr = quantityListStr;
+    }
 }
