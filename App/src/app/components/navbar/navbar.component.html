@@ -1,7 +1,7 @@
 
 <nav>
     <ul>
-        <li><a id="title" href="">WebShop</a></li>
+        <li><a id="title" href="">The Android Shop</a></li>
         <li><a href="">Home</a></li>
         <li routerLinkActive='active'><a routerLink='/products'>Products</a></li>
         <li routerLinkActive='active'><a routerLink='/about'>About</a></li>
@@ -14,12 +14,6 @@
                             <img src="https://firebasestorage.googleapis.com/v0/b/webshop-53671.appspot.com/o/img%2Fshopping-cart-32.png?alt=media&token=e390aa3b-61af-45ea-8b87-160f1220ff6f">
                         </a>
                     </li>
-                    <li>
-                        <a id="profileIcon" routerLink="user-profile" title="Profile">
-                            <img src="https://firebasestorage.googleapis.com/v0/b/webshop-53671.appspot.com/o/img%2Fuser.png?alt=media&token=e3580e63-ff93-4582-9df2-5fd41c35012c">
-                        </a>
-                    </li>
-                
                     <h5><i>Welcome {{user.displayName}}</i></h5>
                 </div>
                 <button id="loginButton" (click)="logout()">Sign out</button>
@@ -32,16 +26,6 @@
                             <img id="iconHover" src="https://firebasestorage.googleapis.com/v0/b/webshop-53671.appspot.com/o/img%2Fshopping-cart-32.png?alt=media&token=e390aa3b-61af-45ea-8b87-160f1220ff6f">
                         </a>
                     </li>
-                    <li>
-                        <a id="fa-user-circle-o" routerLink="user-profile">
-                    
-                            <i class="fa fa-user-circle-o" style="font-size:36px"></i>
-                        </a>
-                    </li>
-                    <li>
-                    
-                    </li>
-
                 </div>
                 <button id="loginButton" (click)="login()">Sign in</button>
             </ng-template> 
