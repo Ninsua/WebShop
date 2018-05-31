@@ -10,9 +10,11 @@ import { AdminViewProductComponent } from './../components/admin-view-product/ad
 import { ShoppingCartComponent } from './../components/shopping-cart/shopping-cart.component';
 import { ProductPageComponent } from '../components/product-page/product-page.component';
 import { ProductDetailsComponent } from '../components/product-details/product-details.component';
-import { UserProfileComponent } from '../components/user-profile/user-profile.component';
 import { AboutComponent } from '../components/about/about.component';
 import { HomeComponent } from '../components/home/home.component';
+import { CheckOutComponent} from '../components/check-out/check-out.component';
+import { OrderDetailComponent } from '../components/order-detail/order-detail.component';
+import { OrderListComponent } from '../components/order-list/order-list.component';
 
 const routes: Routes = [
 	//{ path: '', redirectTo: '/admin', pathMatch: 'full' }, //"Home" can be changed later
@@ -24,9 +26,13 @@ const routes: Routes = [
 	{ path: 'shoppingcart', component: ShoppingCartComponent },
 	{ path: 'products', component: ProductPageComponent },
 	{ path: 'product/:key', component: ProductDetailsComponent },
-	{ path: 'user-profile', component: UserProfileComponent },
 	{ path: 'about', component: AboutComponent },
-	{ path: 'home', component: HomeComponent }
+	{ path: 'home', component: HomeComponent },
+	{ path: 'about', component: AboutComponent },
+	{ path: 'checkout', component: CheckOutComponent },
+	{ path: 'admin/orderlist', component: OrderListComponent },
+	{ path: 'admin/order-detail/:key', component: OrderDetailComponent },
+
 ];
 @NgModule({
   imports: [
