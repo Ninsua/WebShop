@@ -16,6 +16,7 @@ import { AppRoutingModule } from './routing/app-routing.module';
 //Services
 import { SigninService } from './services/signin/signin.service';
 import { BasketService } from './services/basket/basket.service';
+import { DealOfTheDayService } from './services/deal-of-the-day/deal-of-the-day.service';
 import { CookieService } from 'ngx-cookie-service';
 
 //Components
@@ -30,6 +31,7 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
 import { ProductPageComponent } from './components/product-page/product-page.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { AboutComponent } from './components/about/about.component';
+import { HomeComponent } from './components/home/home.component';
 import { CheckOutComponent} from './components/check-out/check-out.component';
 import { OrderDetailComponent } from './components/order-detail/order-detail.component';
 import { OrderListComponent } from './components/order-list/order-list.component';
@@ -49,9 +51,12 @@ import { OrderListComponent } from './components/order-list/order-list.component
 	ProductPageComponent,
 	ProductDetailsComponent,
 	AboutComponent,
+	HomeComponent,
+	AboutComponent,
 	CheckOutComponent,
 	OrderDetailComponent,
 	OrderListComponent 
+
   ],
 	imports: [
     AngularFireModule.initializeApp(environment.firebase),
@@ -61,7 +66,7 @@ import { OrderListComponent } from './components/order-list/order-list.component
 	AppRoutingModule,
 	FormsModule
   ],
-  providers: [AngularFireAuth, SigninService, CookieService, BasketService],
+  providers: [AngularFireAuth, SigninService, CookieService, BasketService, DealOfTheDayService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

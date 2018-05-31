@@ -9,6 +9,7 @@ import { Location } from '@angular/common';
 import * as firebase from 'firebase/app';
 import { SigninService } from './../../services/signin/signin.service';
 import { finalize } from 'rxjs/operators';
+import { DealOfTheDayService } from '../../services/deal-of-the-day/deal-of-the-day.service';
 
 @Component({
 	selector: 'app-admin-edit-product',
@@ -42,6 +43,8 @@ export class AdminEditProductComponent implements OnInit {
 	downloadURL: Observable<string>;
 	oldImage: string="";
 	changedImage:boolean=false;
+	isDeal:boolean=false;
+	oldIsDeal:boolean=false;
 	
 	constructor(
 		private route: ActivatedRoute,
@@ -49,12 +52,19 @@ export class AdminEditProductComponent implements OnInit {
 		private db: AngularFireDatabase,
 		private storage: AngularFireStorage,
 		private afAuth: AngularFireAuth,
-		private signIn:SigninService
+		private signIn:SigninService,
+		private dealz:DealOfTheDayService
 		)
 	{
 		this.signinService = signIn;
 		this.productsList = this.db.list('/Products');
 		this.categoryList = this.db.list('/Category').valueChanges();
+	}
+
+	ngOnInit() {
+		this.getKey();
+		this.getProduct();
+		this.setIsDeal();
 	}
 	
 	isAdmin():boolean {
@@ -128,6 +138,15 @@ export class AdminEditProductComponent implements OnInit {
 			if (this.oldImage.length > 0) {
 				this.removeImage(this.oldImage);
 			}
+
+			if (!this.oldIsDeal && this.isDeal) {
+				this.dealz.add(this.key);
+			}
+
+			else if (this.oldIsDeal && !this.isDeal) {
+				this.dealz.remove(this.key);
+			}
+
 			alert('Product has been edited');
 			this.goBack();
 		}
@@ -155,8 +174,19 @@ export class AdminEditProductComponent implements OnInit {
 		this.location.back();
 	}
 
-	ngOnInit() {
-		this.getKey();
-		this.getProduct();
+	setIsDeal() {
+		this.db.list('/Deals/').valueChanges()
+			.subscribe((keys:string[]) => {
+				for (var i = 0; i<keys.length; i++) {
+					if (this.key == keys[i]) {
+						this.isDeal = true;
+						this.oldIsDeal = true;
+					}
+				}
+			});	
+	}
+
+	dealOfTheDay(value:boolean) {
+		this.isDeal = value;
 	}
 }
