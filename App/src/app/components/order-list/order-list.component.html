@@ -1,0 +1,12 @@
+<div class = "center">
+  <h3>Orders</h3>
+
+  <ul>
+    <li *ngFor = "let order of orderListObservable | async">
+      <option (click) = "onSelect(order)">
+        {{order.date}}  |  {{order.user}}
+      </option>
+    </li>
+  </ul>
+</div>
+

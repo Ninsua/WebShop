@@ -29,8 +29,10 @@ import { SearchbarComponent } from './components/searchbar/searchbar.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { ProductPageComponent } from './components/product-page/product-page.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
-import { UserProfileComponent} from './components/user-profile/user-profile.component';
 import { AboutComponent } from './components/about/about.component';
+import { CheckOutComponent} from './components/check-out/check-out.component';
+import { OrderDetailComponent } from './components/order-detail/order-detail.component';
+import { OrderListComponent } from './components/order-list/order-list.component';
 
 @NgModule({
 
@@ -46,8 +48,10 @@ import { AboutComponent } from './components/about/about.component';
 	ShoppingCartComponent,
 	ProductPageComponent,
 	ProductDetailsComponent,
-	UserProfileComponent,
-	AboutComponent
+	AboutComponent,
+	CheckOutComponent,
+	OrderDetailComponent,
+	OrderListComponent 
   ],
 	imports: [
     AngularFireModule.initializeApp(environment.firebase),
