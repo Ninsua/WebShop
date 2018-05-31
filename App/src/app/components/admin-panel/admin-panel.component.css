@@ -4,11 +4,9 @@ body {
     background-color: #555;
 }
 #nav {
-    text-align: center;
 }
 /* Begin Navigation Bar Styling */
 #nav ul {
-    text-align: center;
     font-size: 11px;
     width: 100%;
     margin: 0;
@@ -16,35 +14,36 @@ body {
     display: inline-block;
     padding: 0;
     list-style: none;
-    background-color: #f2f2f2;
+    background-color: #333;
     border-bottom: 1px solid #ccc;
     border-top: 1px solid #ccc;
 }
 #nav li {
-    display: inline-block;
+    display: block;
 }
 #nav li a {
     display: block;
     padding: 8px 15px;
     text-decoration: none;
     font-weight: bold;
-    color: #069;
+    color: white;
     border-right: 1px solid #ccc;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
 }
 #nav li a:hover {
-    color: rgb(15, 9, 9);
-    background-color: rgb(40, 194, 214);
+    background-color: orangered;
+    text-decoration: underline;
 }
 /* End navigation bar styling. */
-div {
-    text-align: center;
-}
+
 div#page {
     background-color: white;
     margin: 0 auto;
     text-align: left;
-    width: 755px;
+    width: 300px;
     padding: 0px 10px 0 10px;
+    float: left;
 }
 div#header {
     border-bottom: 1px solid black;
@@ -57,7 +56,7 @@ div#content {
     width: 100%;
     line-height: 500px;
     min-height: 500px;
-    _height: 500px
+    height: 500px
 }
 div#footer {
     border: 0px solid red;

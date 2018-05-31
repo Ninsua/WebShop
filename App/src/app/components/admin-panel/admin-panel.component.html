@@ -1,40 +1,27 @@
 <div id="page">
 
-<div id="header">
+    <div id="header">
+        <div style="float: left;">Welcome Admin</div>
 
+        <div id="nav">
 
+            <ul id="nav">
 
-    <div style="float: left;">Welcome Admin</div>
+                <ul *ngIf="isAdmin(); else noAccess">
+                    <li><a routerLink="Home">Home Page</a></li>
+	                  <li><a routerLink="/admin/add_category">Add Category</a></li>
+	                  <li><a routerLink="/admin/add_product">Add Product</a></li>
+	                  <li><a routerLink="/admin/edit_product">Edit Product</a></li>
+                    <li><a href="#">Delivery Status</a></li>
+                    <li><a href="#">Product on Sale</a></li>
+                </ul>
 
-   
+                <ng-template #noAccess>
+                  You don't have access to this page.
+                </ng-template>
 
-    <div id="nav">
+            </ul>
 
-    <ul id="nav">
-
-            
-
-<ul *ngIf="isAdmin(); else noAccess">
-    <li><a routerLink="Home">Home Page</a>
-    </li>
-	<li><a routerLink="/admin/add_category">Add category</a></li>
-	<li><a routerLink="/admin/add_product">Add product</a></li>
-	<li><a routerLink="/admin/edit_product">Edit product</a></li>
-  
-  <li><a href="#">Delivery Status</a>
-  </li>
-  
-  
-  <li><a href="#">Product on Sale</a>
-  </li>
-  
-</ul>
-<ng-template #noAccess>
-  You don't have access to this page.
-</ng-template>
-
-</ul>
-
-</div>
-
+        </div>
+    </div>
 </div>
