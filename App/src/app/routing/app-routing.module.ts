@@ -12,6 +12,7 @@ import { ProductPageComponent } from '../components/product-page/product-page.co
 import { ProductDetailsComponent } from '../components/product-details/product-details.component';
 import { UserProfileComponent } from '../components/user-profile/user-profile.component';
 import { AboutComponent } from '../components/about/about.component';
+import { HomeComponent } from '../components/home/home.component';
 
 const routes: Routes = [
 	//{ path: '', redirectTo: '/admin', pathMatch: 'full' }, //"Home" can be changed later
@@ -24,7 +25,8 @@ const routes: Routes = [
 	{ path: 'products', component: ProductPageComponent },
 	{ path: 'product/:key', component: ProductDetailsComponent },
 	{ path: 'user-profile', component: UserProfileComponent },
-	{ path: 'about', component: AboutComponent }
+	{ path: 'about', component: AboutComponent },
+	{ path: 'home', component: HomeComponent }
 ];
 @NgModule({
   imports: [
