@@ -4,7 +4,7 @@
   <ul>
     <li *ngFor = "let order of orderListObservable | async">
       <option (click) = "onSelect(order)">
-        {{order.date}}  |  {{order.user}}
+        {{order.date}} 
       </option>
     </li>
   </ul>
